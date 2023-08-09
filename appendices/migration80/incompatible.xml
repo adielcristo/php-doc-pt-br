@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- EN-Revision: 05a2d4c535c375d64da54934238c28fc978c2884 Maintainer: geekcom Status: ready --><!-- CREDITS: geekcom,adiel,lhsazevedo,atomotavio -->
+<!-- EN-Revision: 7f4d351cb527938a04343c06a8fd4353b456c5d3 Maintainer: geekcom Status: ready --><!-- CREDITS: geekcom,adiel,lhsazevedo,atomotavio -->
 
 <sect1 xml:id="migration80.incompatible" xmlns:xlink="http://www.w3.org/1999/xlink">
  <title>Alterações incompatíveis com versões anteriores</title>
@@ -11,7 +11,7 @@
    <title>Comparação entre String e Número</title>
 
    <para>
-    Comparações não estritas entre números e strings não numéricas, agora funcionam convertendo o número em
+    Comparações não estritas entre números e strings não numéricas agora funcionam convertendo o número em
     string e comparando as strings. As comparações entre números e strings numéricas continuam
     funcionando como antes. Notavelmente, isso significa que a comparação: <code>0 == "não-número"</code> agora é considerada
     falsa.
@@ -73,74 +73,74 @@
     </listitem>
     <listitem>
      <para>
-      <literal>mixed</literal> agora é uma palavra reservada, portanto, não pode ser usado para nomear uma classe, interface ou trait, e também é proibido de ser usado em namespaces.
+      <literal>mixed</literal> agora é uma palavra reservada, portanto não pode ser usada para nomear uma classe, interface ou trait, e também é proibida de ser usada em namespaces.
      </para>
     </listitem>
     <listitem>
      <para>
-      As falhas de asserção agora são lançadas por padrão. Se o comportamento antigo é desejado,
+      As falhas de asserção agora são lançadas por padrão. Se o comportamento antigo for desejado,
       <code>assert.exception=0</code> pode ser definido nas configurações INI.
      </para>
     </listitem>
     <listitem>
      <para>
-      Métodos com o mesmo nome de classe não são mais interpretados como construtores. O
-      método <link linkend="object.construct">__construct()</link> deve ser utilizado em seu lugar.
+      Métodos com o mesmo nome da classe não são mais interpretados como construtores. O
+      método <link linkend="object.construct">__construct()</link> deve ser usado em seu lugar.
      </para>
     </listitem>
     <listitem>
      <para>
-      A capacidade de chamar métodos não estáticos estaticamente foi removida. Por isso
-      a função <function>is_callable</function> irá falhar ao verificar um método não estático com
-      um nome de classe (deve se realizar uma verificação com uma instância de objeto).
+      A capacidade de chamar estaticamente métodos não estáticos foi removida. Por isso
+      a função <function>is_callable</function> falhará ao verificar um método não estático com
+      um nome de classe (a verificação deve ser realizada com uma instância de objeto).
      </para>
     </listitem>
     <listitem>
      <para>
-      Foram removidas as conversões de tipos, <code>(real)</code> e <code>(unset)</code>.
+      As conversões de tipos <code>(real)</code> e <code>(unset)</code> foram removidas.
      </para>
     </listitem>
     <listitem>
       <para>
-       A diretiva do php.ini <link linkend="ini.track-errors">track_errors</link> foi removida. Isto
+       A diretiva do php.ini <link linkend="ini.track-errors">track_errors</link> foi removida. Isso
        significa que a variável <varname>php_errormsg</varname> não está mais disponível. A função
-       <function>error_get_last</function> deve ser utilizada em seu lugar.
+       <function>error_get_last</function> pode ser usada em seu lugar.
       </para>
     </listitem>
     <listitem>
      <para>
       A capacidade de definir constantes que não diferenciam maiúsculas de minúsculas foi removida. O
-      terceiro argumento para a função <function>define</function> não pode ser mais &true;.
+      terceiro argumento da função <function>define</function> não pode ser mais &true;.
      </para>
     </listitem>
     <listitem>
      <para>
-      A capacidade de especificar um auto carregamento utilizando a função <function>__autoload</function> foi
-      removida. A função <function>spl_autoload_register</function> deve ser utilizada em seu lugar.
+      A capacidade de especificar um carregador automático usando a função <function>__autoload</function> foi
+      removida. A função <function>spl_autoload_register</function> deve ser usada em seu lugar.
      </para>
     </listitem>
     <listitem>
      <para>
-      O argumento <parameter>errcontext</parameter> não será mais usado para manipulação de erros personalizados
-      definido com a função <function>set_error_handler</function>.
+      O argumento <parameter>errcontext</parameter> não será mais passado para manipuladores de erros personalizados
+      definidos com a função <function>set_error_handler</function>.
      </para>
     </listitem>
     <listitem>
      <para>
-      A função <function>create_function</function> foi removida. Ao invés disso, funções anônimas devem ser utilizadas.
+      A função <function>create_function</function> foi removida. Funções anônimas podem ser usadas em seu lugar.
      </para>
     </listitem>
     <listitem>
      <para>
       A função <function>each</function> foi removida. &foreach; ou <classname>ArrayIterator</classname>
-      devem ser utilizados em seu lugar.
+      devem ser usados em seu lugar.
      </para>
     </listitem>
     <listitem>
      <para>
-      Foi removida a capacidade de desvincular <varname>this</varname> de closures que foram
-      criadas a partir de um método, usando <methodname>Closure::fromCallable</methodname> ou
-      <methodname>ReflectionMethod::getClosure</methodname>.
+      A capacidade de desvincular <varname>this</varname> de closures que foram criadas a partir de um método,
+      usando <methodname>Closure::fromCallable</methodname> ou
+      <methodname>ReflectionMethod::getClosure</methodname> foi removida.
      </para>
     </listitem>
     <listitem>
@@ -151,58 +151,58 @@
     </listitem>
     <listitem>
      <para>
-      A habilidade de utilizar a função <function>array_key_exists</function> com objetos foi removida.
-      as funções <function>isset</function> ou <function>property_exists</function> devem ser usadas em seu lugar.
+      A habilidade de usar a função <function>array_key_exists</function> com objetos foi removida.
+      As funções <function>isset</function> ou <function>property_exists</function> podem ser usadas em seu lugar.
      </para>
     </listitem>
     <listitem>
      <para>
-      O comportamento da função <function>array_key_exists</function> com relação ao tipo do parâmetro
-      <parameter>key</parameter> agora é consistente com a função <function>isset</function> e
-      acesso normal à arrays. Todos os tipos de chave agora usam as coerções usuais e as chaves de
-      array/objeto lançam um <classname>TypeError</classname>.
+      O comportamento da função <function>array_key_exists</function> em relação ao tipo do parâmetro
+      <parameter>key</parameter> tornou-se consistente com a função <function>isset</function> e com
+      o acesso normal a arrays. Todos os tipos de chave agora usam as coerções usuais e as chaves de
+      array/objeto lançam uma exceção <classname>TypeError</classname>.
      </para>
     </listitem>
     <listitem>
      <para>
-      Qualquer array com número <replaceable>n</replaceable> em sua primeira posição utilizará
-      <replaceable>n+1</replaceable> em sua próxima chave implícita mesmo se <replaceable>n</replaceable>
+      Qualquer array com um número <replaceable>n</replaceable> como sua primeira chave numérica usará
+      <replaceable>n+1</replaceable> como sua próxima chave implícita, mesmo se <replaceable>n</replaceable>
       for negativo.
       <!-- RFC: https://wiki.php.net/rfc/negative_array_index -->
      </para>
     </listitem>
     <listitem>
      <para>
-      O nível de error_reporting padrão agora é <constant>E_ALL</constant>. Anteriormente excluía
+      O nível padrão de error_reporting agora é <constant>E_ALL</constant>. Anteriormente, excluía
       <constant>E_NOTICE</constant> e <constant>E_DEPRECATED</constant>.
      </para>
     </listitem>
     <listitem>
      <para>
-      <link linkend="ini.display-startup-errors">display_startup_errors</link> agora é habilitado por
+      <link linkend="ini.display-startup-errors">display_startup_errors</link> agora está habilitada por
       padrão.
      </para>
     </listitem>
     <listitem>
      <para>
-      Usar <type>parent</type> dentro de uma classe sem pai agora produzirá um erro fatal
-      em tempo de execução.
+      Usar <type>parent</type> dentro de uma classe que não tem pai agora
+      resultará em um erro fatal em tempo de compilação.
      </para>
     </listitem>
     <listitem>
      <para>
-      O operador <literal>@</literal> não irá mais silenciar erros fatais
+      O operador <literal>@</literal> não silenciará mais erros fatais
       (<constant>E_ERROR</constant>, <constant>E_CORE_ERROR</constant>,
       <constant>E_COMPILE_ERROR</constant>, <constant>E_USER_ERROR</constant>,
       <constant>E_RECOVERABLE_ERROR</constant>, <constant>E_PARSE</constant>). Manipuladores de erros que
-      esperam que error_reporting seja <literal>0</literal> quando <literal>@</literal> é usado, devem
+      esperam que error_reporting seja <literal>0</literal> quando <literal>@</literal> for usado, devem
       ser ajustados para usar uma verificação de máscara:
      </para>
      <para>
       <programlisting role="php">
 <![CDATA[
 <?php
-// Substituir isso ...
+// Substituir isso...
 function my_error_handler($err_no, $err_msg, $filename, $linenum) {
     if (error_reporting() == 0) {
         return false;
@@ -222,39 +222,39 @@ function my_error_handler($err_no, $err_msg, $filename, $linenum) {
       </programlisting>
      </para>
      <para>
-      Adicionalmente, cuidados devem ser tomados para que mensagens de erro não sejam mostradas
-      no ambiente de produção, o que pode resultar em vazamento de informações. Certifique-se
-      de que a diretiva <code>display_errors=Off</code> seja usada em conjunto com o log de erros.
+      Além disso, deve-se tomar cuidado para que mensagens de erro não sejam
+      exibidas em ambientes de produção, o que pode resultar em vazamentos de informações. 
+      Certifique-se de que a diretiva <code>display_errors=Off</code> seja usada em conjunto com o registro de erros.
      </para>
     </listitem>
     <listitem>
      <para>
       <literal>#[</literal> não é mais interpretado como o início de um comentário,
-      já que esta sintaxe é utilizada agora para atributos.
+      pois esta sintaxe agora é usada agora para atributos.
       <!-- RFC: https://wiki.php.net/rfc/shorter_attribute_syntax_change -->
      </para>
     </listitem>
     <listitem>
      <para>
-      Erros de herança devido a assinaturas de método incompatíveis (violações de LSP) agora sempre gerarão
-      um erro fatal. Antes, um aviso era gerado em alguns casos.
+      Erros de herança devido a assinaturas de métodos incompatíveis (violações de LSP) agora sempre gerarão
+      um erro fatal. Anteriormente, um aviso era gerado em alguns casos.
       <!-- RFC: https://wiki.php.net/rfc/lsp_errors -->
      </para>
     </listitem>
     <listitem>
      <para>
-      A precedência dos operadores de concatenação foi modificada em relação ao bitshifts tanto na adição
-      como na subtração.
+      A precedência do operador de concatenação foi modificada em relação aos
+      deslocamentos de bits e adição, bem como subtração.
      </para>
      <para>
       <programlisting role="php">
 <![CDATA[
 <?php
-echo "Sum: " . $a + $b;
-// Era interpretado como:
-echo ("Sum: " . $a) + $b;
-// e passa a ser interpretado como:
-echo "Sum:" . ($a + $b);
+echo "Soma: " . $a + $b;
+// Anteriormente, era interpretado como:
+echo ("Soma: " . $a) + $b;
+// Agora é interpretado como:
+echo "Soma:" . ($a + $b);
 ?>
 ]]>
       </programlisting>
